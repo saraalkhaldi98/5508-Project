@@ -91,7 +91,7 @@ blacklisted_goal(0, 0, 0).  /* RX, RY, StepsRemaining - Added by Member 4 */
 +!cleanup_stale_memory : true. // Added by Member 4
 
 /* =============================================================================
-   API for teammates
+   API for teammates (Added by Member 1)
    ============================================================================= */
 // Belief-event handlers (triggered when teammate sends a tell message)
 +set_target(Tx,Ty) : true <-
@@ -180,7 +180,7 @@ new_target(n,Tx,Ty,Tx,NTy) :- NTy = Ty + 1.
     +found_dispenser(T,NX,NY);
     !update_dispensers(Dir, Rest).
 /* =============================================================================
-   MEMBER 1: Navigation & Exploration (Parser-safe, Low-noise)
+   MEMBER 1 (Sara): Navigation & Exploration (Parser-safe, Low-noise)
    -----------------------------------------------------------------------------
    Features:
    - Always-act (every actionID -> exactly one action)
@@ -537,7 +537,7 @@ new_target(n,Tx,Ty,Tx,NTy) :- NTy = Ty + 1.
 +!dec_stuck : true          <- -stuck_count(_); +stuck_count(0).
 
 /* =============================================================================
-   MEMBER 2: Coordinator & Task Manager (Brain)
+   MEMBER 2 (Fajer): Coordinator & Task Manager (Brain)
    -----------------------------------------------------------------------------
    Features:
    - Centralized coordination (connectionA1 is leader)
@@ -699,7 +699,7 @@ free_agent(Ag) :-
 +!cleanup_need(_) : true.
 
 /* =============================================================================
-   MEMBER 3: Collector Logic
+   MEMBER 3 (Noor): Collector Logic
    -----------------------------------------------------------------------------
    Features:
    - Identify nearest dispensers and goals from percepts
@@ -994,7 +994,7 @@ carrying_block(Type) :- attached(X, Y) & thing(X, Y, block, Type). // Modified b
     detach(Dir).
 +!drop_attached_block(_, _) : true <- rotate(cw).
 /* =============================================================================
-   MEMBER 4: Assembly & Delivery (Ghalya) - Added by Member 4
+   MEMBER 4 (Ghalya): Assembly & Delivery - Added by Member 4
    ============================================================================= */
 
 
